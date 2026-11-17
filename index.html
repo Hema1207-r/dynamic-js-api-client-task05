@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A product explorer demonstrating JavaScript Fetch API, filtering, sorting and localStorage.">
+  <title>Shoply — Product Explorer</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Shoply home"><span class="brand-mark">S</span> shoply<span class="brand-dot">.</span></a>
+    <div class="header-note"><span class="live-dot"></span> Live product explorer</div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">DISCOVER SOMETHING GREAT</p>
+        <h1>Find your next<br><span>favorite thing.</span></h1>
+        <p class="hero-description">Explore products, search by name, and sort your picks. Product data is loaded from a public REST API.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="art-circle circle-one"></div><div class="art-circle circle-two"></div><div class="art-card">✦<small>CURATED<br>FOR YOU</small></div></div>
+    </section>
+
+    <section class="toolbar" aria-label="Product controls">
+      <label class="search-wrap"><span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search products..." autocomplete="off"><kbd>⌘ K</kbd></label>
+      <label class="sort-wrap"><span class="sr-only">Sort products</span><select id="sortSelect"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="rating">Top rated</option><option value="name">Name: A to Z</option></select></label>
+    </section>
+
+    <section class="category-row" aria-label="Filter by category">
+      <div id="categoryTabs" class="category-tabs"><button class="category-tab active" data-category="all">All products</button></div>
+      <p id="resultCount" class="result-count" aria-live="polite">Loading products…</p>
+    </section>
+
+    <div id="statusMessage" class="status-message" role="status" aria-live="polite">Connecting to the product store…</div>
+    <section id="productGrid" class="product-grid" aria-label="Products">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </section>
+
+    <section class="info-strip">
+      <div><span class="info-icon">↻</span><div><strong>Smart caching</strong><p>Recently loaded products are saved in this browser.</p></div></div>
+      <div><span class="info-icon">⌕</span><div><strong>Instant filtering</strong><p>Search and categories update without reloading.</p></div></div>
+      <div><span class="info-icon">⚡</span><div><strong>Live API data</strong><p>Refresh to fetch the latest available API response.</p></div></div>
+    </section>
+    <footer><span>© 2026 Shoply Demo</span><button id="refreshButton" class="refresh-button">↻ Refresh products</button><span>Built with JavaScript ES modules</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
